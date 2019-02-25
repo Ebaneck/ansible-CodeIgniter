@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     web.vm.provision "ansible" do |ansible|
-      ansible.playbook = "web-playbook.yml"
+      ansible.playbook = "playbooks/web-playbook.yml"
       ansible.inventory_path = "hosts"
       ansible.host_key_checking = false
       ansible.sudo = true

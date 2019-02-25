@@ -3,6 +3,7 @@ This repo contains ansible playbook which includes roles for deploying CodeIgnit
 
 ###ROles include
 - common: basic debian package
+- Letsencrypt
 - CodeIgniter framework base
 - Nginx(webserver prefered)
 - PHP
@@ -14,4 +15,4 @@ This repo contains ansible playbook which includes roles for deploying CodeIgnit
 
 ##Running Ansible deployment as a standalone command
 
-`ansible-playbook -i hosts web-playbook.yml`
+`ansible-playbook -i hosts playbooks/web-playbook.yml`
