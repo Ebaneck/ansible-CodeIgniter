@@ -1,1 +1,3 @@
 mysql_root_password: 'test'
+mysql_databases: 'oyesaving'
+mysql_root_password: 'add_password_vaulted'
