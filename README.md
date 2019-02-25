@@ -8,7 +8,7 @@ This repo contains ansible playbook which includes roles for deploying CodeIgnit
 - Nginx(webserver prefered)
 - PHP
 - Mysql(DB)
-- Iptables
+- Iptables(incomplete)
 - Swapfile
 
 
