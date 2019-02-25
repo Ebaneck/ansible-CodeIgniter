@@ -3,13 +3,15 @@
 # Playbook to deploy a CodeIgniter application to cloud
 #
 
-- hosts: webserver
+- name: Requirements for deploying web_application
+  hosts: webserver
   become_user: "root"
   vars_files:
     - group_vars/all.yml
   roles:
     - { role: common }
     - { role: nginx }
+    - { role: letsencrypt }
     - { role: php }
     - { role: mysql }
     - { role: firewall }
