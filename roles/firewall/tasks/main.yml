@@ -1,0 +1,15 @@
+---
+#Load iptables firewall rules easily
+
+- name: Copy iptables rules to servers
+  template:
+    src=iptables.conf
+    dest=/etc/iptables.rules
+    owner=root
+    group=root
+    mode=0644
+  notify:
+    - restart iptables
+
+- name: Load the firewall rules
+  action: shell /sbin/iptables-restore -! < /etc/iptables.rules
