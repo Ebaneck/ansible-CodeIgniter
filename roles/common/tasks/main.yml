@@ -1,0 +1,28 @@
+---
+- name: Update package list same as running apt-cache
+  apt:
+    update_cache: yes
+    cache_valid_time: '{{apt_cache_valid_time}}'
+
+- name: install a list of general packages
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - git
+    - curl
+    - unzip
+    - vim
+    - zip
+
+- name: Check if anything needs autoremoving
+  shell: apt-get -y --dry-run autoremove | grep -q "0 to remove"
+  register: check_autoremove
+  ignore_errors: True
+  changed_when: False
+  always_run: True
+
+- name: Autoremove unused packages
+  command: apt-get -y autoremove
+  when: "check_autoremove.rc != 0"
