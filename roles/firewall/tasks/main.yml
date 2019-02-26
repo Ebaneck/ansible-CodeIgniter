@@ -3,11 +3,11 @@
 
 - name: Copy iptables rules to servers
   template:
-    src=iptables.conf
-    dest=/etc/iptables.rules
-    owner=root
-    group=root
-    mode=0644
+    src: iptables.conf
+    dest: /etc/iptables.rules
+    owner: root
+    group: root
+    mode: 0644
   notify:
     - restart iptables
 
