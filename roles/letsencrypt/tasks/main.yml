@@ -1,0 +1,13 @@
+---
+- name: install Letsencrypt
+  apt:
+    name: letsencrypt
+    state: present
+
+- name: check if dhparam.pem exists
+  stat: path=/etc/ssl/certs/dhparam.pem
+  register: dhparam
+
+- name: generate dhparam.pem
+  raw: openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
+  when: not dhparam.stat.exists
