@@ -1,0 +1,26 @@
+---
+- name: Install a list of packages
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - php
+    - php-mbstring
+    - php-mysql
+    - php-zip
+    - php-xml
+    - php-gd
+    - composer
+  tags: php
+
+- name: enable and start php7-fpm
+  systemd: name=php7.0-fpm state=started enabled=yes
+  tags: php
+
+- name: enable and start php7 fpm
+  service:
+    name: php7.0-fpm
+    state: started
+    enabled: yes
+  tags: php
