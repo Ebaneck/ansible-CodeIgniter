@@ -21,7 +21,6 @@
   register: check_autoremove
   ignore_errors: True
   changed_when: False
-  always_run: True
 
 - name: Autoremove unused packages
   command: apt-get -y autoremove

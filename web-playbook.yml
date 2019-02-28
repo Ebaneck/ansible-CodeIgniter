@@ -5,9 +5,7 @@
 
 - name: Requirements for deploying web_application
   hosts: webserver
-  become_user: "root"
-  vars_files:
-    - group_vars/all.yml
+  remote_user: "root"
   roles:
     - { role: common }
     - { role: nginx }
@@ -15,5 +13,4 @@
     - { role: php }
     - { role: mysql }
     - { role: firewall }
-    - { role: swap }
     - { role: web_app }

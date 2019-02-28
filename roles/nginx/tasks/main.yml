@@ -5,11 +5,12 @@
     state: present
 
 - name: Copy ssl-params.conf snippet
-  src: ssl-params.conf
-  dest: /etc/nginx/snippets/ssl-params.conf
-  notify:
-    - reload nginx
-  tags: nginx
+  file:
+    src: ssl-params.conf
+    dest: /etc/nginx/snippets/ssl-params.conf
+    notify:
+      - reload nginx
+    tags: nginx
 
 - name: disable default site
   file:
