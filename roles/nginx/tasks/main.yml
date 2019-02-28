@@ -1,7 +1,7 @@
 ---
 - name: Install nginx
   apt:
-    name: nignx
+    name: nginx
     state: present
 
 - name: Copy ssl-params.conf snippet
