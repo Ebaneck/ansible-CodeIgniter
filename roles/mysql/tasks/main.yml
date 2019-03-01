@@ -49,6 +49,7 @@
   mysql_db:
     name: '{{mysql_databases}}'
     state: present
+  register: database_creation
 
 # Copy database dump file to remote host and restore it to database 'my_db'
 - name: Copy database dump file
@@ -61,3 +62,4 @@
     state: import
     name: '{{mysql_databases}}'
     target: /tmp/save.sql
+  when: database_creation.changed
