@@ -12,6 +12,7 @@
     - php-xml
     - php-gd
     - composer
+    - php7.0-fpm 
   tags: php
 
 - name: enable and start php7 fpm
